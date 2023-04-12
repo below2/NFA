@@ -16,12 +16,9 @@ public class Main {
         q2.setOneTransitions(null);
         q2.setEpsilonTransitions(null);
 
-        // q0 = new State(new State[]{q0}, null, new State[]{q1}, true, false);
-        // q1 = new State(null, new State[]{q1}, new State[]{q2}, false, false);
-        // q2 = new State(new State[]{q2}, null, null, false, true);
-
-        for (State state : q0.getEpsilonTransitions()) {
-            System.out.println(state.toString(state));
-        }
+        State[] states = new State[3];
+        states[0] = q0;
+        states[1] = q1;
+        states[2] = q2;
     }
 }
