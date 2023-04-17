@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         State q0 = new State(true, false);
         State q1 = new State(false, false);
         State q2 = new State(false, true);
@@ -20,5 +20,9 @@ public class Main {
         states[0] = q0;
         states[1] = q1;
         states[2] = q2;
+
+        NFA nfa = new NFA(states, "010");
+
+        nfa.Compute();
     }
 }
