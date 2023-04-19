@@ -23,7 +23,9 @@ public class NFA {
                 currentTransitions = currentState.getZeroTransitions();
                 if (currentTransitions == null) {
                     currentTransitions = currentState.getEpsilonTransitions();
-                    if (currentTransitions == null) {
+                    if (currentTransitions == null && currentState.getF() && i == input.length() - 1) {
+                        System.out.println("Rejected");
+                    } else {
                         System.out.println("Rejected? : curentInput = 0 but no 0 or epsilon transitions");
                     }
                     transition();
@@ -50,6 +52,7 @@ public class NFA {
             if (inputPointer >= input.length()) {
                 if (currentState.getF() && currentState.getEpsilonTransitions() == null) {
                     System.out.println("ACCEPT");
+                    return;
                 } // TODO: check for case where input is exhausted but nfa may have an epsilon
                   // link to an acc state
             } else {
